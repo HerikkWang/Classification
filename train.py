@@ -21,6 +21,7 @@ from utils.logging import Get_logger
 import numpy as np
 from torch.utils.tensorboard import SummaryWriter
 from one_net import *
+from mlp_model import *
 
 def main():
     global args, best_prec1
@@ -83,6 +84,7 @@ def main():
                   "ConvMixerShuffleNet2": ConvMixerShuffleNet2,
                   "NormNet2": NormNet2,
                   "NoPaddingNet": NoPaddingNet,
+                  "SparseMLP": SparseMLP,
 
     }
     model = model_dict[args.model_name](num_classes=args.num_classes)

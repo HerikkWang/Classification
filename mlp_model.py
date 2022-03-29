@@ -69,7 +69,7 @@ class sMLP_block(nn.Module):
         return out
 
 class SparseMLP(nn.Module):
-    def __init__(self, W, H, blocks=[2, 8, 14, 2], num_classes=100) -> None:
+    def __init__(self, W=32, H=32, blocks=[2, 4, 4, 2], num_classes=100) -> None:
         super().__init__()
         self.embedding = nn.Sequential(
             nn.Conv2d(3, 16, kernel_size=1, stride=1),
@@ -86,7 +86,6 @@ class SparseMLP(nn.Module):
     def forward(self, x):
         out = self.embedding(x)
         out = self.block1(out)
-        print(out.size())
         out = self.block2(out)
         out = self.block3(out)
         out = self.block4(out)

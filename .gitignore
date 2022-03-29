@@ -2,6 +2,6 @@
 /.ipynb_checkpoints/
 /__pycache__/
 /save_temp/
-/log/
+*.log
 *.pyc
 test.py
